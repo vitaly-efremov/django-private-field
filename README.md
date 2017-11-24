@@ -27,3 +27,27 @@ class Employee(models.Model, metaclass=PrivateFieldsMeta):
 
 >>> Employee.objects.filter(rate=12)
 ```
+
+It's also possible to encapsulate field's data.
+Short example here.
+```
+class Employee(models.Model, metaclass=PrivateFieldsMeta):
+    name = models.CharField(max_length=256)
+    rate = models.FloatField(default=0)
+    
+    class Meta:
+        private_fields = ('rate', )
+        
+    @property
+    def rate(self):
+        return self._rate
+        
+    @rate.setter
+    def rate(self, value):
+        self._rate = value * 3
+        
+>>> employee = Employee(name='John')
+>>> employee.rate = 4
+>>> employee.rate
+>>> 12
+```
