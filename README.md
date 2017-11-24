@@ -1,6 +1,6 @@
 Introduction
 ------------
-Small Django Model extension which make particular fields private and encapsulate field's data.
+Small Django Model extension which makes particular fields private and allowes to encapsulate field's data.
 
 PrivateFieldsMeta metaclass that looks at **private_fields** attribute in Model Meta Option and renames the class attribute to **_{attribute}**, but keeps db column name original.
 
