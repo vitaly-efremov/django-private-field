@@ -42,12 +42,11 @@ class Employee(models.Model, metaclass=PrivateFieldsMeta):
     def rate(self):
         return self._rate
         
-    @rate.setter
-    def rate(self, value):
+    def set_rate(self, value):
         self._rate = value * 3
         
 >>> employee = Employee(name='John')
->>> employee.rate = 4
->>> employee.rate
+>>> employee.set_rate(4)
+>>> employee._rate
 >>> 12
 ```
