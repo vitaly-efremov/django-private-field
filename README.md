@@ -37,11 +37,7 @@ class Employee(models.Model, metaclass=PrivateFieldsMeta):
     
     class Meta:
         private_fields = ('rate', )
-        
-    @property
-    def rate(self):
-        return self._rate
-        
+
     def set_rate(self, value):
         self._rate = value * 3
         
